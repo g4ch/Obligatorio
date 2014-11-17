@@ -26,7 +26,6 @@ public class Sistema {
     ArrayList<Sucursal> sucursales;
 
     public static void main(String[] args) {
-            // TODO code application logic here
-
+        
     }
 }
