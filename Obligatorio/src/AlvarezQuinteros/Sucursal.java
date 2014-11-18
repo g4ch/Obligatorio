@@ -4,12 +4,13 @@
  * and open the template in the editor.
  */
 
-package Obligatorio;
+package AlvarezQuinteros;
 
 /**
  *
  * @author alumnoFI
  */
 public class Sucursal {
+    int numeroSucursal;
     
 }

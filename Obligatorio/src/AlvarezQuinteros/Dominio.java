@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Obligatorio;
+package AlvarezQuinteros;
 
 import java.io.IOException;
 import static java.lang.System.console;
@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  *
  * @author alumnoFI
  */
-public class Sistema {
+public class Dominio {
 
     /**
      * @param args the command line arguments
