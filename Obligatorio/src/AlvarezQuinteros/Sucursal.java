@@ -12,5 +12,20 @@ package AlvarezQuinteros;
  */
 public class Sucursal {
     int numeroSucursal;
+    String direccion;
+    int telefono ;
+
+  /*  public Sucursal(int numeroSucursal) {
+       numeroSucursal = "1";
+    }
+*/
+    public int getNumeroSucursal() {
+        return numeroSucursal;
+    }
+
+    public void setNumeroSucursal(int numeroSucursal) {
+        this.numeroSucursal = numeroSucursal;
+    }
     
+  
 }

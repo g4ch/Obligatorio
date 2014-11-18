@@ -17,7 +17,7 @@ public class Persona {
     String nombre;
     String apellido;
     String direccion;
-    Date nacimiento;
+    int nacimiento;
     String email;
     String telefono;
 
@@ -26,10 +26,32 @@ public class Persona {
         nombre="Pedro";
         apellido="Gonzalez";
         direccion="Cuareim 1451";
-        nacimiento=new Date();
+        nacimiento = 141294;
+      //  nacimiento=new Date();
         email="pgonzalez@gmail.com";
         telefono="094123456";
     }
+
+    public Persona(String cedula, String nombre, String apellido, String direccion, int nacimiento, String email, String telefono) {
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.direccion = direccion;
+        this.nacimiento = nacimiento;
+        this.email = email;
+        this.telefono = telefono;
+    }
+
+    public int getNacimiento() {
+        return nacimiento;
+    }
+
+    public void setNacimiento(int nacimiento) {
+        this.nacimiento = nacimiento;
+    }
+
+
+
 
     public String getCedula() {
         return cedula;
@@ -63,14 +85,14 @@ public class Persona {
         this.direccion = direccion;
     }
 
-    public Date getNacimiento() {
+  /*  public Date getNacimiento() {
         return nacimiento;
     }
 
     public void setNacimiento(Date nacimiento) {
         this.nacimiento = nacimiento;
     }
-
+*/
     public String getEmail() {
         return email;
     }
