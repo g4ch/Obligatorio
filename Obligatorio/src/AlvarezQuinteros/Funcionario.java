@@ -13,7 +13,7 @@ package AlvarezQuinteros;
 public class Funcionario extends Persona {
     Sucursal sucursal;
 
-    public Funcionario(Sucursal sucursal) {
+    public Funcionario() {
         this.sucursal = sucursal;
     }
 
