@@ -27,6 +27,8 @@ public class Dominio {
     
  public static ArrayList<Sucursal> sucursales;
  public static ArrayList<Persona> personas;
+ public static String usuario;
+ public static String rol;
     public static void main(String[] args) {
       //  Persona p1=new Persona ("45909697","Agustin","Quinteros","25 de Mayo",141294,"agustinquinteros17@hotmail.com", "099147463");
     

@@ -18,12 +18,15 @@ public class AccesoSistema extends javax.swing.JFrame {
      */
     public AccesoSistema() {
         initComponents();
-
-        
+        jComboBox1.removeAllItems();
         jComboBox1.addItem("Administrador");
         jComboBox1.addItem("Gestión");
         jComboBox1.addItem("Consulta");
         jComboBox2.removeAllItems();
+        jComboBox2.addItem("Procesamiento");
+        jComboBox2.addItem("Informacion");
+        jComboBox2.addItem("Mantenimiento");
+        jComboBox2.addItem("Log");
     }
 
     /**
@@ -70,6 +73,11 @@ public class AccesoSistema extends javax.swing.JFrame {
         });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox1MouseClicked(evt);
+            }
+        });
         jComboBox1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jComboBox1ItemStateChanged(evt);
@@ -78,6 +86,13 @@ public class AccesoSistema extends javax.swing.JFrame {
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
+            }
+        });
+        jComboBox1.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                jComboBox1InputMethodTextChanged(evt);
             }
         });
 
@@ -158,19 +173,22 @@ public class AccesoSistema extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        if (jComboBox1.getSelectedItem().equals("Administrador")) {
-            jComboBox2.addItem("Procesamiento");
-            jComboBox2.addItem("Informacion");
-            jComboBox2.addItem("Mantenimiento");
-            jComboBox2.addItem("Log");
+        if (jComboBox1.getItemCount() > 0) {
+            if (jComboBox1.getSelectedItem().equals("Administrador")) {
+                jComboBox2.removeAllItems();
+                jComboBox2.addItem("Procesamiento");
+                jComboBox2.addItem("Informacion");
+                jComboBox2.addItem("Mantenimiento");
+                jComboBox2.addItem("Log");
 
-        } else if (jComboBox1.getSelectedItem().equals("Gestión")) {
-            jComboBox2.removeAllItems();
-            jComboBox2.addItem("Mantenimiento");
-        } else if (jComboBox1.getSelectedItem().equals("Consulta")) {
-            jComboBox2.removeAllItems();
-            jComboBox2.addItem("Mantenimiento");
-            jComboBox2.addItem("Informacion");
+            } else if (jComboBox1.getSelectedItem().equals("Gestión")) {
+                jComboBox2.removeAllItems();
+                jComboBox2.addItem("Mantenimiento");
+            } else if (jComboBox1.getSelectedItem().equals("Consulta")) {
+                jComboBox2.removeAllItems();
+                jComboBox2.addItem("Mantenimiento");
+                jComboBox2.addItem("Informacion");
+            }
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
@@ -181,6 +199,8 @@ public class AccesoSistema extends javax.swing.JFrame {
             //else cedula incorrecta ingresela nuevamente
 
         }
+        MantenimientoMyP myp= new MantenimientoMyP();
+        myp.setVisible(true); 
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
@@ -194,6 +214,14 @@ public class AccesoSistema extends javax.swing.JFrame {
     private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
 
     }//GEN-LAST:event_jComboBox1ItemStateChanged
+
+    private void jComboBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseClicked
+
+    }//GEN-LAST:event_jComboBox1MouseClicked
+
+    private void jComboBox1InputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_jComboBox1InputMethodTextChanged
+
+    }//GEN-LAST:event_jComboBox1InputMethodTextChanged
 
     /**
      * @param args the command line arguments
