@@ -22,7 +22,7 @@ public class Consulta {
     public Consulta() {
         id=0;
         fecha=new Date();
-        sucursal=new Sucursal(1);
+        sucursal=new Sucursal();
         medico=new Medico();
         afiliado=new Afiliado();
         admin=new Funcionario();

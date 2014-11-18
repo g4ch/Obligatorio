@@ -17,7 +17,7 @@ public class Afiliado extends Persona {
 
     public Afiliado() {
         medico=new Medico();
-        sucursal=new Sucursal(1);
+        sucursal=new Sucursal();
         historia=new Historia();
     }
 
