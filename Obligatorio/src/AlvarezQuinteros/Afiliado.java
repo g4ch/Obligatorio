@@ -17,7 +17,7 @@ public class Afiliado extends Persona {
 
     public Afiliado() {
         medico=new Medico();
-        sucursal=new Sucursal();
+        sucursal=new Sucursal(1);
         historia=new Historia();
     }
 
@@ -47,7 +47,7 @@ public class Afiliado extends Persona {
 
     @Override
     public String toString() {
-        return medico + "|" + sucursal + "|" + historia + "|";
+        return cedula + "|" + nombre + "|" + apellido + "|" + direccion + "|" + nacimiento + "|" + email + "|" + telefono + "|" + medico + "|" + sucursal + "|" + historia + "|";
     }
     
 }

@@ -10,8 +10,18 @@ package AlvarezQuinteros;
  *
  * @author alumnoFI
  */
-class Medico extends Funcionario{
+class Medico extends Persona{
     String especialidad;
+
+    public Sucursal getSucursal() {
+        return sucursal;
+    }
+
+    public void setSucursal(Sucursal sucursal) {
+        this.sucursal = sucursal;
+        
+    }
+    Sucursal sucursal;
 
     public Medico() {
         especialidad="Cardiologia";
@@ -24,10 +34,11 @@ class Medico extends Funcionario{
     public void setEspecialidad(String especialidad) {
         this.especialidad = especialidad;
     }
+    
 
     @Override
     public String toString() {
-        return cedula + "|" + nombre + "|" + apellido + "|" + direccion + "|" + nacimiento + "|" + email + "|" + telefono + "|" + especialidad + "|";
+        return cedula + "|" + nombre + "|" + apellido + "|" + direccion + "|" + nacimiento + "|" + email + "|" + telefono + "|" + especialidad + "|" + sucursal + "|";
     }
     
 }

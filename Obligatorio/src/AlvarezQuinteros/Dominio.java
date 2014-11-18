@@ -24,6 +24,7 @@ public class Dominio {
     ArrayList<Afiliado> afiliados;
     ArrayList<Medico> medicos;
     ArrayList<Sucursal> sucursales;
+    public Persona usuario;
 
     public static void main(String[] args) {
         

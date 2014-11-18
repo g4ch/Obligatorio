@@ -7,6 +7,7 @@
 package AlvarezQuinteros;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
@@ -39,7 +40,13 @@ public class Historia {
 
     @Override
     public String toString() {
-        return persona.toString() + consultas.toString() + "|" + detalles + "|";
+        Iterator<Consulta> it=consultas.iterator();
+        String cons="";
+        while (it.hasNext()){
+        Consulta aux=it.next();
+        cons+=aux.getId()+";";
+        }        
+        return persona.getCedula()+ "|" + cons + "|" + detalles + "|";
     }
     
 }

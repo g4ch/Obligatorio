@@ -11,13 +11,24 @@ package AlvarezQuinteros;
  * @author alumnoFI
  */
 public class Funcionario extends Persona {
+    Sucursal sucursal;
 
-    public Funcionario() {
+    public Funcionario(Sucursal sucursal) {
+        this.sucursal = sucursal;
     }
+
+    public Sucursal getSucursal() {
+        return sucursal;
+    }
+
+    public void setSucursal(Sucursal sucursal) {
+        this.sucursal = sucursal;
+    }
+    
 
     @Override
     public String toString() {
-        return "Funcionario{" + '}';
+        return cedula + "|" + nombre + "|" + apellido + "|" + direccion + "|" + nacimiento + "|" + email + "|" + telefono + "|" + sucursal + "|";
     }
     
 }

@@ -13,18 +13,21 @@ import java.util.Date;
  * @author alumnoFI
  */
 public class Consulta {
+    int id;
     Date fecha;
     Sucursal sucursal;
     Medico medico;
     Afiliado afiliado;
     Funcionario admin;
     public Consulta() {
+        id=0;
         fecha=new Date();
-        sucursal=new Sucursal();
+        sucursal=new Sucursal(1);
         medico=new Medico();
         afiliado=new Afiliado();
         admin=new Funcionario();
     }
+    
 
     public Date getFecha() {
         return fecha;
@@ -36,6 +39,14 @@ public class Consulta {
 
     public Sucursal getSucursal() {
         return sucursal;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setSucursal(Sucursal sucursal) {
@@ -68,7 +79,7 @@ public class Consulta {
 
     @Override
     public String toString() {
-        return fecha + "|" + sucursal + "|" + medico + "|" + afiliado + "|" + admin.toString() + "|";
+        return id + "|" + fecha + "|" + sucursal.getNumeroSucursal() + "|" + medico.getCedula() + "|" + afiliado.getCedula() + "|" + admin.getCedula() + "|";
     }
     
 }
