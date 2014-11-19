@@ -1,4 +1,3 @@
-cedula + "|" + nombre + "|" + apellido + "|" + direccion + "|" + nacimiento + "|" + email + "|" + telefono + "|" + especialidad + "|" + sucursal + "|";
 1111114-4|Luis|Bravo|Yaguaron 301|11/8/1984|bravolu@gmail.com|099111114|Cardiologia|002|
 1111115-5|Diego|Roman|Libertad 1122|10/10/1973|droman@gmail.com|099111115|Traumatologia|002|
 1111116-6|Carla|Nogueira|25 de Agosto 112|11/9/1980|moreb@gmail.com|0991111116|Pediatria|002|

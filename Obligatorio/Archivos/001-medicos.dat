@@ -1,4 +1,3 @@
-cedula + "|" + nombre + "|" + apellido + "|" + direccion + "|" + nacimiento + "|" + email + "|" + telefono + "|" + especialidad + "|" + sucursal + "|";
 4444444-4|Maria|Correa|Lido 3101|13/7/1970|corream@gmail.com|099444444|Cirugia|001|
 5555555-5|Flavio|Solero|Rambla Wilson 1734|20/8/1969|f.solero@gmail.com|099555555|Nefrologia|001|
 6666666-6|Damian|Ortega|Justicia 1112|17/5/1962|ortegadam@gmail.com|099666666|Urologia|001|
