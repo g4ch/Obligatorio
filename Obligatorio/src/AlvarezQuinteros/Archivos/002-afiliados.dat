@@ -1,0 +1,4 @@
+cedula + "|" + nombre + "|" + apellido + "|" + direccion + "|" + nacimiento + "|" + email + "|" + telefono + "|" + medico + "|" + sucursal + "|" + historia + "|"
+7777771-1|Mario|Calvo|Cuareim 6201|11/8/1984|calvom@gmail.com|099777771|1111114-4|002|7777771-1
+8888882-2|Carlos|Saravia|Rondeau 1212|10/10/1995|csara@gmail.com|099888882|1111115-5|002|8888882-2
+9999993-3|Benito|Moreira|4 de Julio 2112|11/9/1993|moreb@gmail.com|099999993|1111116-6|002|9999993-3

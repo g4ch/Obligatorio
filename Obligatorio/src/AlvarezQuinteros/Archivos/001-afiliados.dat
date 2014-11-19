@@ -1,0 +1,4 @@
+cedula + "|" + nombre + "|" + apellido + "|" + direccion + "|" + nacimiento + "|" + email + "|" + telefono + "|" + medico + "|" + sucursal + "|" + historia + "|"
+1111111-1|Pedro|Benitez|Av italia 6201|11/11/1994|pbenitez@gmail.com|099111111|4444444-4|001|1111111-1
+2222222-2|Alvaro|Fernandez|Yi 1212|10/11/1985|afernandez@gmail.com|099222222|5555555-5|001|2222222-2
+3333333-3|Camilo|Porteiro|18 de Julio 2112|1/9/1975|cporte@gmail.com|099333333|6666666-6|001|3333333-3
