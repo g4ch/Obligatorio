@@ -11,12 +11,13 @@ package AlvarezQuinteros.Interfaz;
  * @author alumnoFI
  */
 public class ProcesamientoArchivos extends javax.swing.JPanel {
-
-    /**
-     * Creates new form ProcesamientoArchivos
-     */
+        int cantidadPacientes;
+        int cantidadMedicos;
+        int cantidadSucursales;
+        
     public ProcesamientoArchivos() {
         initComponents();
+        
     }
 
     /**
@@ -40,6 +41,11 @@ public class ProcesamientoArchivos extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
 
         jButton1.setText("Procesar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jTextField1.setText("                     ");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -136,7 +142,7 @@ public class ProcesamientoArchivos extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addGap(34, 34, 34))
         );
@@ -157,6 +163,11 @@ public class ProcesamientoArchivos extends javax.swing.JPanel {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //Recorro archivos y cuento la cantidad de cada uno
+        //Muestro cantidad en text boxs
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
