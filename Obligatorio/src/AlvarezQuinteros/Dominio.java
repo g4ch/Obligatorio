@@ -60,6 +60,28 @@ public class Dominio {
         }
         return retorno;
     }
+     public static boolean cedulaValida(String ci) {
+        Boolean res = false;
+        if (ci.length() == 8) {
+            res = true;
+            for (int i = 0; i < ci.length() - 2; i++) {
+                res = res && Character.isDigit(ci.charAt(i));
+            }
+            if (res && Character.isDigit(ci.charAt(7))) {
+                res = true;
+
+            } else {
+                res = false;
+            }
+            if (res && ci.charAt(6) == '-') {
+                res = true;
+            } else {
+                res = false;
+            }
+
+        }
+        return res;
+    }
 
     public static int[] cargarArchivos() {
         int[] resultado = new int[3];//en [0] pacientes en [1] medicos en [2] sucursales
