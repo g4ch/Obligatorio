@@ -11,49 +11,50 @@ package AlvarezQuinteros;
  * @author alumnoFI
  */
 public class Afiliado extends Persona {
-    Medico medico;
-    Sucursal sucursal;
-    Historia historia;
+    String medico;
+    String sucursal;
+    String historia;
 
     public Afiliado() {
-        medico=new Medico();
-        sucursal=new Sucursal();
-        historia=new Historia();
+        this.medico="";
+        this.sucursal="";
+        this.historia="";
     }
 
-    public Afiliado(String cedula, String nombre, String apellido, String direccion, String nacimiento, String email, String telefono) {
+    public Afiliado(String cedula, String nombre, String apellido, String direccion, String nacimiento, String email, String telefono, String medico, String sucursal,String historia) {
         super(cedula, nombre, apellido, direccion, nacimiento, email, telefono);
+        this.medico=medico;
+        this.sucursal=sucursal;
+        this.historia=historia;
     }
-    
-    
 
-    public Medico getMedico() {
+    public String getMedico() {
         return medico;
     }
 
-    public void setMedico(Medico medico) {
+    public void setMedico(String medico) {
         this.medico = medico;
     }
 
-    public Sucursal getSucursal() {
+    public String getSucursal() {
         return sucursal;
     }
 
-    public void setSucursal(Sucursal sucursal) {
+    public void setSucursal(String sucursal) {
         this.sucursal = sucursal;
     }
 
-    public Historia getHistoria() {
+    public String getHistoria() {
         return historia;
     }
 
-    public void setHistoria(Historia historia) {
+    public void setHistoria(String historia) {
         this.historia = historia;
     }
-
+    
     @Override
     public String toString() {
-        return cedula + "|" + nombre + "|" + apellido + "|" + direccion + "|" + nacimiento + "|" + email + "|" + telefono + "|" + medico + "|" + sucursal + "|" + historia + "|";
+        return cedula + "|" + nombre + "|" + apellido + "|" + direccion + "|" + nacimiento + "|" + email + "|" + telefono + "|" + medico + "|" + sucursal + "|"+ historia + "|";
     }
     
 }
