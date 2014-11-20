@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package AlvarezQuinteros.Interfaz;
 
 import AlvarezQuinteros.Dominio;
+import java.util.Iterator;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -83,7 +84,19 @@ public class Log extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        jTextArea1.setText("");
+        if (Dominio.cedulaValida(jTextField1.getText()) && Dominio.estaEnLista(Dominio.personas, jTextField1.getText())) {
+            Iterator<String> it = Dominio.logs.iterator();
+            while (it.hasNext()) {
+                String aux = it.next();
+                if (jTextField1.getText().equals(aux.split("\\|")[0])) {
+                    jTextArea1.append(aux + "\r\n");
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Cédula incorrecta o no está en el sistema, vuelva a ingresarla o registre la misma", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
