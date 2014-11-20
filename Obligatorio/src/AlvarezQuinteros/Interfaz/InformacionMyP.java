@@ -5,8 +5,10 @@
  */
 package AlvarezQuinteros.Interfaz;
 
+import AlvarezQuinteros.Afiliado;
 import AlvarezQuinteros.ArchivoLectura;
 import AlvarezQuinteros.Dominio;
+import AlvarezQuinteros.Medico;
 import java.io.File;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -16,6 +18,8 @@ import javax.swing.JOptionPane;
  * @author user
  */
 public class InformacionMyP extends javax.swing.JFrame {
+    private Medico unmedico;
+    private Afiliado unafiliado1;
 
     public InformacionMyP() {
         initComponents();
@@ -249,8 +253,8 @@ public class InformacionMyP extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton4)
                         .addGap(25, 25, 25)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -268,9 +272,9 @@ public class InformacionMyP extends javax.swing.JFrame {
                                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel10))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -374,7 +378,7 @@ public class InformacionMyP extends javax.swing.JFrame {
         //Medico 8-Especialidad 9-Sucursal 10
         System.out.println("Apreto el boton4?" + jButton4.getText());
         System.out.println(jTextField1.getText());
-        if (Dominio.cedulaValida(jTextField1.getText())) {
+       if (Dominio.cedulaValida(jTextField1.getText())) {
             if (Dominio.estaEnLista(Dominio.personas, jTextField1.getText())) { // Si la cedula no está el que juega es el boton Aceptar
                 File carpeta = new File("./Archivos/");
                 File[] lista = carpeta.listFiles();
@@ -382,52 +386,63 @@ public class InformacionMyP extends javax.swing.JFrame {
                     if (lista[i].isFile()) {
                         ArchivoLectura al = new ArchivoLectura("./Archivos/" + lista[i].getName());
                         String[] tipo = lista[i].getName().split("-");
-                        if (al.hayMasLineas() && jComboBox1.getSelectedItem().equals("Afiliado") && tipo[1].equals("afiliados.dat")) {
-                            String[] datos = al.linea().split("\\|");
-                            System.out.println(datos.toString());
-                            if (datos[0].equals(jTextField1.getText())) {
-                                jTextField2.setText(datos[1]);//nombre
-                                jTextField3.setText(datos[2]);//apellido
-                                jTextField4.setText(datos[3]);//direccion
-                                jTextField5.setText(datos[4]);//nacimiento
-                                jTextField6.setText(datos[5]);//email
-                                jTextField7.setText(datos[6]);//telefono
-                                jTextField8.setText(datos[7]);//medico
-                                jTextField10.setText(datos[8]);//sucursal
+                        while (al.hayMasLineas()) {
+                            if (jComboBox1.getSelectedItem().equals("Afiliado") && tipo[1].equals("afiliados.dat")) {
+                                String[] datos = al.linea().split("\\|");
+                                System.out.println(datos.toString());
+                                if (datos[0].equals(jTextField1.getText())) {
+                                    jTextField2.setText(datos[1]);//nombre
+                                    jTextField3.setText(datos[2]);//apellido
+                                    jTextField4.setText(datos[3]);//direccion
+                                    jTextField5.setText(datos[4]);//nacimiento
+                                    jTextField6.setText(datos[5]);//email
+                                    jTextField7.setText(datos[6]);//telefono
+                                    jTextField8.setText(datos[7]);//medico
+                                    jTextField10.setText(datos[8]);//sucursal
+                                }
                             }
-                        }
-                        if (al.hayMasLineas() && jComboBox1.getSelectedItem().equals("Funcionario") && tipo[1].equals("funcionarios.dat")) {
-                            String[] datos = al.linea().split("\\|");
-                            System.out.println(datos.toString());
-                            if (datos[0].equals(jTextField1.getText())) {
-                                jTextField2.setText(datos[1]);//nombre
-                                jTextField3.setText(datos[2]);//apellido
-                                jTextField4.setText(datos[3]);//direccion
-                                jTextField5.setText(datos[4]);//nacimiento
-                                jTextField6.setText(datos[5]);//email
-                                jTextField7.setText(datos[6]);//telefono
-                                jTextField10.setText(datos[8]);//sucursal
+                            if (jComboBox1.getSelectedItem().equals("Funcionario") && tipo[1].equals("funcionarios.dat")) {
+                                String[] datos = al.linea().split("\\|");
+                                System.out.println(datos.toString());
+                                if (datos[0].equals(jTextField1.getText())) {
+                                    jTextField2.setText(datos[1]);//nombre
+                                    jTextField3.setText(datos[2]);//apellido
+                                    jTextField4.setText(datos[3]);//direccion
+                                    jTextField5.setText(datos[4]);//nacimiento
+                                    jTextField6.setText(datos[5]);//email
+                                    jTextField7.setText(datos[6]);//telefono
+                                    jTextField10.setText(datos[8]);//sucursal
+                                }
                             }
-                        }
-                        if (al.hayMasLineas() && jComboBox1.getSelectedItem().equals("Médico") && tipo[1].equals("medicos.dat")) {
-                            String[] datos = al.linea().split("\\|");
-                            System.out.println(datos.toString());
-                            if (datos[0].equals(jTextField1.getText())) {
-                                jTextField2.setText(datos[1]);//nombre
-                                jTextField3.setText(datos[2]);//apellido
-                                jTextField4.setText(datos[3]);//direccion
-                                jTextField5.setText(datos[4]);//nacimiento
-                                jTextField6.setText(datos[5]);//email
-                                jTextField7.setText(datos[6]);//telefono
-                                jTextField10.setText(datos[8]);//sucursal
-                                jTextField9.setText(datos[9]);//especialidad
+                            if (jComboBox1.getSelectedItem().equals("Médico") && tipo[1].equals("medicos.dat")) {
+                                String[] datos = al.linea().split("\\|");
+                                System.out.println(datos.toString());
+                                if (datos[0].equals(jTextField1.getText())) {
+                                    jTextField2.setText(datos[1]);//nombre
+                                    jTextField3.setText(datos[2]);//apellido
+                                    jTextField4.setText(datos[3]);//direccion
+                                    jTextField5.setText(datos[4]);//nacimiento
+                                    jTextField6.setText(datos[5]);//email
+                                    jTextField7.setText(datos[6]);//telefono
+                                    jTextField10.setText(datos[7]);//sucursal
+                                    jTextField9.setText(datos[8]);//especialidad
 
+                                }
                             }
                         }
                     }
 
                 }
+            } else {
+                if (jComboBox1.getSelectedItem().equals("Afiliado")) {
+                    unafiliado1 = new Afiliado(jTextField1.getText(),jTextField2.getText(),jTextField3.getText(),jTextField4.getText(),jTextField5.getText(),jTextField6.getText(),jTextField7.getText(),jTextField8.getText(),jTextField10.getText(),jTextField1.getText());
+                }
+                if (jComboBox1.getSelectedItem().equals("Médico")) {
+                    unmedico=new Medico(jTextField1.getText(),jTextField2.getText(),jTextField3.getText(),jTextField4.getText(),jTextField5.getText(),jTextField6.getText(),jTextField7.getText(),jTextField10.getText(),jTextField9.getText());
+                }
             }
+        } else {
+            JOptionPane.showMessageDialog(null, "Cédula incorrecta o no está en el sistema, vuelva a ingresarla o registre la misma", "Error", JOptionPane.ERROR_MESSAGE);
         }
         if (Dominio.cedulaValida(jTextField1.getText())) {
             File carpeta = new File("./Archivos/");
