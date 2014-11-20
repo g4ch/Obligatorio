@@ -7,6 +7,8 @@
 package AlvarezQuinteros.Interfaz;
 
 import AlvarezQuinteros.Dominio;
+import static AlvarezQuinteros.Dominio.MostrarDeListaPersonas;
+import java.util.ArrayList;
 
 /**
  *
@@ -17,6 +19,7 @@ public class ProcesamientoArchivos extends javax.swing.JPanel {
         
     public ProcesamientoArchivos() {
         initComponents();
+        
         
     }
 
