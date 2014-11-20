@@ -155,6 +155,11 @@ public class MantenimientoMyP extends javax.swing.JPanel {
         });
 
         jButton2.setText("Login");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Agregar/Modificar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -309,9 +314,6 @@ public class MantenimientoMyP extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
-    }                                        
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // SI LA CEDULA NO ESTÁ LE PREGUNTA SI LA QUIERE AGREGAR , SI ESTÁ MUESTRA INFO PARA MODIFICAR EN PANTALLA
@@ -353,71 +355,79 @@ public class MantenimientoMyP extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField10ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-
-    }                                        
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // Graba en los archivos los datos que se modificaron o que se agregaron del todo 
         //
+        System.out.println("Apreto el boton3?" + jButton3.getText());
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
 
 //Nombre 2-Apellido 3-Direccion 4-Nacimiento 5-Email 6-Telefono 7
 //Medico 8-Especialidad 9-Sucursal 10
+        System.out.println("Apreto el boton4?" + jButton4.getText());
+        System.out.println(jTextField1.getText());
         if (Dominio.cedulaValida(jTextField1.getText())) {
-            if (Dominio.personas.contains(jTextField1.getText())) { // Si la cedula no está el que juega es el boton Aceptar
+            if (Dominio.estaEnLista(Dominio.personas, jTextField1.getText())) { // Si la cedula no está el que juega es el boton Aceptar
                 File carpeta = new File("./Archivos/");
                 File[] lista = carpeta.listFiles();
                 for (int i = 0; i < lista.length; i++) {
                     if (lista[i].isFile()) {
                         ArchivoLectura al = new ArchivoLectura("./Archivos/" + lista[i].getName());
                         String[] tipo = lista[i].getName().split("-");
-                        if (jComboBox1.getSelectedItem().equals("Afiliado")) {
-                            /*
-                             jTextField2.setText(LUGAR EN EL ARRAY DONDE ESTA NOMBRE);
-                             jTextField3.setText(LUGAR EN EL ARRAY DONDE ESTA Apellido);
-                             jTextField4.setText(LUGAR EN EL ARRAY DONDE ESTA Direccion);
-                             jTextField5.setText(LUGAR EN EL ARRAY DONDE ESTA Nacimiento);
-                             jTextField6.setText(LUGAR EN EL ARRAY DONDE ESTA Email);
-                             jTextField7.setText(LUGAR EN EL ARRAY DONDE ESTA Telefono);
-                             jTextField8.setText(LUGAR EN EL ARRAY DONDE ESTA Medico);
-                             jTextField10.setText(LUGAR EN EL ARRAY DONDE ESTA Sucursal);
-                             */
+                        if (al.hayMasLineas() && jComboBox1.getSelectedItem().equals("Afiliado") && tipo[1].equals("afiliados.dat")) {
+                            String[] datos = al.linea().split("\\|");
+                            System.out.println(datos.toString());
+                            if (datos[0].equals(jTextField1.getText())) {
+                                jTextField2.setText(datos[1]);//nombre
+                                jTextField3.setText(datos[2]);//apellido
+                                jTextField4.setText(datos[3]);//direccion
+                                jTextField5.setText(datos[4]);//nacimiento
+                                jTextField6.setText(datos[5]);//email
+                                jTextField7.setText(datos[6]);//telefono
+                                jTextField8.setText(datos[7]);//medico
+                                jTextField10.setText(datos[8]);//sucursal
+                            }
                         }
-                        if (jComboBox1.getSelectedItem().equals("Funcionario")) {
-                            /*
-                             jTextField2.setText(LUGAR EN EL ARRAY DONDE ESTA NOMBRE);
-                             jTextField3.setText(LUGAR EN EL ARRAY DONDE ESTA Apellido);
-                             jTextField4.setText(LUGAR EN EL ARRAY DONDE ESTA Direccion);
-                             jTextField5.setText(LUGAR EN EL ARRAY DONDE ESTA Nacimiento);
-                             jTextField6.setText(LUGAR EN EL ARRAY DONDE ESTA Email);
-                             jTextField7.setText(LUGAR EN EL ARRAY DONDE ESTA Telefono);
-                             jTextField10.setText(LUGAR EN EL ARRAY DONDE ESTA Sucursal);
-                
-                             */
+                        if (al.hayMasLineas() && jComboBox1.getSelectedItem().equals("Funcionario") && tipo[1].equals("funcionarios.dat")) {
+                            String[] datos = al.linea().split("\\|");
+                            System.out.println(datos.toString());
+                            if (datos[0].equals(jTextField1.getText())) {
+                                jTextField2.setText(datos[1]);//nombre
+                                jTextField3.setText(datos[2]);//apellido
+                                jTextField4.setText(datos[3]);//direccion
+                                jTextField5.setText(datos[4]);//nacimiento
+                                jTextField6.setText(datos[5]);//email
+                                jTextField7.setText(datos[6]);//telefono
+                                jTextField10.setText(datos[8]);//sucursal
+                            }
                         }
-                        if (jComboBox1.getSelectedItem().equals("Médico")) {
-                            /*
-                             jTextField2.setText(LUGAR EN EL ARRAY DONDE ESTA NOMBRE);
-                             jTextField3.setText(LUGAR EN EL ARRAY DONDE ESTA Apellido);
-                             jTextField4.setText(LUGAR EN EL ARRAY DONDE ESTA Direccion);
-                             jTextField5.setText(LUGAR EN EL ARRAY DONDE ESTA Nacimiento);
-                             jTextField6.setText(LUGAR EN EL ARRAY DONDE ESTA Email);
-                             jTextField7.setText(LUGAR EN EL ARRAY DONDE ESTA Telefono);
-                             jTextField7.setText(LUGAR EN EL ARRAY DONDE ESTA Especialidad);
-                
-                
-                             */
-                        }
+                        if (al.hayMasLineas() && jComboBox1.getSelectedItem().equals("Médico") && tipo[1].equals("medicos.dat")) {
+                            String[] datos = al.linea().split("\\|");
+                            System.out.println(datos.toString());
+                            if (datos[0].equals(jTextField1.getText())) {
+                                jTextField2.setText(datos[1]);//nombre
+                                jTextField3.setText(datos[2]);//apellido
+                                jTextField4.setText(datos[3]);//direccion
+                                jTextField5.setText(datos[4]);//nacimiento
+                                jTextField6.setText(datos[5]);//email
+                                jTextField7.setText(datos[6]);//telefono
+                                jTextField10.setText(datos[8]);//sucursal
+                                jTextField9.setText(datos[9]);//especialidad
 
+                            }
+                        }
                     }
+
                 }
-                
             }
         }
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        System.out.println("Apreto el boton2?" + jButton2.getText());        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

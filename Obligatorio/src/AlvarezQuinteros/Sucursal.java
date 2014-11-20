@@ -25,6 +25,13 @@ public class Sucursal {
         this.telefono = 0;
     }
 
+    public Sucursal(int numeroSucursal, String direccion, int telefono) {
+        this.numeroSucursal = numeroSucursal;
+        this.direccion = direccion;
+        this.telefono = telefono;
+    }
+    
+
     public int getNumeroSucursal() {
         return numeroSucursal;
     }

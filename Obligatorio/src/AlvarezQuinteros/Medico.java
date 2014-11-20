@@ -12,19 +12,25 @@ package AlvarezQuinteros;
  */
 class Medico extends Persona{
     String especialidad;
+    String sucursal;
+    
+    public Medico() {
+        especialidad="Cardiologia";
+    }
 
-    public Sucursal getSucursal() {
+    public Medico(String cedula, String nombre, String apellido, String direccion, String nacimiento, String email, String telefono, String especialidad, String sucursal ) {
+        super(cedula, nombre, apellido, direccion, nacimiento, email, telefono);
+        this.especialidad = especialidad;
+        this.sucursal = sucursal;
+    }
+
+    public String getSucursal() {
         return sucursal;
     }
 
-    public void setSucursal(Sucursal sucursal) {
+    public void setSucursal(String sucursal) {
         this.sucursal = sucursal;
         
-    }
-    Sucursal sucursal;
-
-    public Medico() {
-        especialidad="Cardiologia";
     }
 
     public String getEspecialidad() {

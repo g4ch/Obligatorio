@@ -199,7 +199,7 @@ public class AccesoSistema extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         //Controlar que la cédula esté 
 //        if(Dominio.personas.contains(jTextField2.getText())){
-        if (Dominio.cedulaValida(jTextField2.getText())) {
+        if (Dominio.cedulaValida(jTextField2.getText()) && Dominio.estaEnLista(Dominio.personas, jTextField2.getText())) {
             if (jComboBox2.getSelectedItem().equals("Procesamiento")) {
                 JFrame frame = new JFrame();
                 frame.setSize(420, 345);

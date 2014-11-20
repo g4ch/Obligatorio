@@ -21,6 +21,12 @@ public class Afiliado extends Persona {
         historia=new Historia();
     }
 
+    public Afiliado(String cedula, String nombre, String apellido, String direccion, String nacimiento, String email, String telefono) {
+        super(cedula, nombre, apellido, direccion, nacimiento, email, telefono);
+    }
+    
+    
+
     public Medico getMedico() {
         return medico;
     }

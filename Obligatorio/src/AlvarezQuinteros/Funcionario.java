@@ -17,6 +17,12 @@ public class Funcionario extends Persona {
         this.sucursal = sucursal;
     }
 
+    public Funcionario(Sucursal sucursal, String cedula, String nombre, String apellido, String direccion, String nacimiento, String email, String telefono) {
+        super(cedula, nombre, apellido, direccion, nacimiento, email, telefono);
+        this.sucursal = sucursal;
+    }
+    
+
     public Sucursal getSucursal() {
         return sucursal;
     }

@@ -22,6 +22,13 @@ public class Historia {
         detalles="Enfermedades y otros relevantes";
     }
 
+    public Historia(ArrayList<Consulta> consultas, String detalles, Persona persona) {
+        this.consultas = consultas;
+        this.detalles = detalles;
+        this.persona = persona;
+    }
+    
+
     public ArrayList<Consulta> getConsultas() {
         return consultas;
     }

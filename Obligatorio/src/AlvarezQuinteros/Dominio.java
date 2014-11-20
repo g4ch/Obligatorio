@@ -25,19 +25,21 @@ public class Dominio {
     /**
      * @param args the command line arguments
      */
-    public static ArrayList<Sucursal> sucursales;
-    public static ArrayList<Persona> personas;
+    public static ArrayList<Sucursal> sucursales=new ArrayList<Sucursal>();
+    public static ArrayList<Persona> personas=new ArrayList<Persona>();
     public static String usuario;
     public static String rol;
 
 
     public static void main(String[] args) {
-        //  Persona p1=new Persona ("45909697","Agustin","Quinteros","25 de Mayo",141294,"agustinquinteros17@hotmail.com", "099147463");
-
-
+        Persona p1=new Persona ("4590969-7","Agustin","Quinteros","25 de Mayo","14/12/94","agustinquinteros17@hotmail.com", "099147463");
+        Dominio.personas.add(p1);
         AccesoSistema ventana = new AccesoSistema();
         ventana.setVisible(true);
-        //personas.add(null);
+        
+        System.out.println(Dominio.estaEnLista(personas, "4590969-7"));
+        System.out.println(Dominio.cedulaValida("4590969-7"));
+        
     }
 
     public static boolean estaEnLista(ArrayList<Persona> p, String cedula) {
@@ -53,23 +55,19 @@ public class Dominio {
     }
      public static boolean cedulaValida(String ci) {
         Boolean res = false;
-        if (ci.length() == 8) {
+        if (ci.length() == 9) {
             res = true;
             for (int i = 0; i < ci.length() - 2; i++) {
                 res = res && Character.isDigit(ci.charAt(i));
             }
-            if (res && Character.isDigit(ci.charAt(7))) {
+            if (res && Character.isDigit(ci.charAt(8))) {//4590969-7
                 res = true;
-
-            } else {
-                res = false;
             }
-            if (res && ci.charAt(6) == '-') {
+            if (res && ci.charAt(7) == '-') {
                 res = true;
             } else {
                 res = false;
             }
-
         }
         return res;
     }
@@ -84,10 +82,13 @@ public class Dominio {
                 ArchivoLectura al = new ArchivoLectura("./Archivos/" + lista[i].getName());
                 String[] tipo = lista[i].getName().split("-");                
                 while (al.hayMasLineas()) {
+                    String[] datos=al.linea.split("\\|");
                     if (tipo[1].equals("afiliados.dat")) {
+                        Dominio.personas.add(new Afiliado(datos[0],datos[1],datos[2],datos[3],datos[4],datos[5],datos[6]));
                         resultado[0]++;
                     }
                     if (tipo[1].equals("medicos.dat")) {
+                        Dominio.personas.add(new Medico(datos[0],datos[1],datos[2],datos[3],datos[4],datos[5],datos[6],datos[7],datos[8]));
                         resultado[1]++;
                     }
                 }
