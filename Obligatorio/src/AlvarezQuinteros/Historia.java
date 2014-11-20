@@ -16,13 +16,13 @@ import java.util.Iterator;
 public class Historia {
     ArrayList<Consulta> consultas;
     String detalles;
-    Persona persona;
+    String persona;
     public Historia() {
         consultas = new ArrayList<Consulta>();
         detalles="Enfermedades y otros relevantes";
     }
 
-    public Historia(ArrayList<Consulta> consultas, String detalles, Persona persona) {
+    public Historia(ArrayList<Consulta> consultas, String detalles, String persona) {
         this.consultas = consultas;
         this.detalles = detalles;
         this.persona = persona;
@@ -53,7 +53,7 @@ public class Historia {
         Consulta aux=it.next();
         cons+=aux.getId()+";";
         }        
-        return persona.getCedula()+ "|" + cons + "|" + detalles + "|";
+        return persona+ "|" + cons + "|" + detalles + "|";
     }
     
 }
