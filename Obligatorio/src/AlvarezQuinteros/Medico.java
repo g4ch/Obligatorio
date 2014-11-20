@@ -10,7 +10,7 @@ package AlvarezQuinteros;
  *
  * @author alumnoFI
  */
-class Medico extends Persona{
+public class Medico extends Persona{
     String especialidad;
     String sucursal;
     
