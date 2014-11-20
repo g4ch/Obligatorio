@@ -6,6 +6,8 @@
 package AlvarezQuinteros;
 
 import AlvarezQuinteros.Interfaz.AccesoSistema;
+import AlvarezQuinteros.Interfaz.InformacionMyP;
+import AlvarezQuinteros.Interfaz.ProcesamientoArchivos;
 import java.io.File;
 import java.io.IOException;
 import static java.lang.System.console;
@@ -15,6 +17,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 
 /**
  *
@@ -25,8 +28,7 @@ public class Dominio {
     /**
      * @param args the command line arguments
      */
-    public static ArrayList<String> log = new ArrayList<String>();
-    public static ArrayList<Sucursal> sucursales = new ArrayList<Sucursal>();
+    public static ArrayList<String> logs = new ArrayList<String>();
     public static ArrayList<Persona> personas = new ArrayList<Persona>();
     public static String usuario;
     public static String rol;
@@ -102,4 +104,21 @@ public class Dominio {
         }
         return resultado;
     }
+
+    public static ArrayList<String> MostrarDeListaPersonas() {
+        ArrayList<String> resultado = new ArrayList<String>();
+        Iterator<Persona> it = personas.iterator();
+        while (it.hasNext()) {
+            Persona aux = it.next();
+            if (aux.getClass().toString().contains("Medico")) {
+                resultado.add(((Medico) (aux)).toString());
+            } else {
+                if (aux.getClass().toString().contains("Afiliado")) {
+                    resultado.add(((Afiliado) (aux)).toString());
+                }
+            }
+        }
+        return resultado;
+    }
+
 }

@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
  * @author user
  */
 public class InformacionMyP extends javax.swing.JFrame {
+
     private Medico unmedico;
     private Afiliado unafiliado1;
 
@@ -360,7 +361,7 @@ public class InformacionMyP extends javax.swing.JFrame {
         //Medico 8-Especialidad 9-Sucursal 10
         System.out.println("Apreto el boton4?" + jButton4.getText());
         System.out.println(jTextField1.getText());
-       if (Dominio.cedulaValida(jTextField1.getText())) {
+        if (Dominio.cedulaValida(jTextField1.getText())) {
             if (Dominio.estaEnLista(Dominio.personas, jTextField1.getText())) { // Si la cedula no está el que juega es el boton Aceptar
                 File carpeta = new File("./Archivos/");
                 File[] lista = carpeta.listFiles();
@@ -416,12 +417,7 @@ public class InformacionMyP extends javax.swing.JFrame {
 
                 }
             } else {
-                if (jComboBox1.getSelectedItem().equals("Afiliado")) {
-                    unafiliado1 = new Afiliado(jTextField1.getText(),jTextField2.getText(),jTextField3.getText(),jTextField4.getText(),jTextField5.getText(),jTextField6.getText(),jTextField7.getText(),jTextField8.getText(),jTextField10.getText(),jTextField1.getText());
-                }
-                if (jComboBox1.getSelectedItem().equals("Médico")) {
-                    unmedico=new Medico(jTextField1.getText(),jTextField2.getText(),jTextField3.getText(),jTextField4.getText(),jTextField5.getText(),jTextField6.getText(),jTextField7.getText(),jTextField10.getText(),jTextField9.getText());
-                }
+                
             }
         } else {
             JOptionPane.showMessageDialog(null, "Cédula incorrecta o no está en el sistema, vuelva a ingresarla o registre la misma", "Error", JOptionPane.ERROR_MESSAGE);
@@ -433,12 +429,14 @@ public class InformacionMyP extends javax.swing.JFrame {
                 if (lista[i].isFile()) {
                     ArchivoLectura al = new ArchivoLectura("./Archivos/" + lista[i].getName());
                     String[] tipo = lista[i].getName().split("-");
-                    if (al.hayMasLineas() && tipo[1].equals("historias.dat")) {
+                    while (al.hayMasLineas()) {
                         String[] datos = al.linea().split("\\|");
-                        jTextArea1.setText("Consultas : " + datos[1] + "\r\n");
-                        jTextArea1.append("Sucursal : " + datos[2] + "\r\n");
-                        jTextArea1.append("Detalles : " + datos[3]);
+                        if (tipo[1].equals("historias.dat") && datos[0].equals(jTextField1.getText()) ) {
+                            jTextArea1.setText("Las consultas del paciente son : " + datos[1] + "\r\n");
+                            jTextArea1.append("El paciente pertenece a la sucursal : " + datos[2] + "\r\n");
+                            jTextArea1.append("Los detalles de la persona son : " + datos[3]);
 
+                        }
                     }
                 }
 
@@ -480,7 +478,7 @@ public class InformacionMyP extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new InformacionMyP().setVisible(true);
-                
+
             }
         });
     }

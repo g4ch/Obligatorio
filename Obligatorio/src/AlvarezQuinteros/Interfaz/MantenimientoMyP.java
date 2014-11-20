@@ -17,8 +17,10 @@ import javax.swing.JOptionPane;
  * @author alumnoFI
  */
 public class MantenimientoMyP extends javax.swing.JPanel {
+
     private Afiliado unafiliado;
     private Medico unmedico;
+
     public MantenimientoMyP() {
         initComponents();
         jComboBox1.removeAllItems();
@@ -337,7 +339,15 @@ public class MantenimientoMyP extends javax.swing.JPanel {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // Graba en los archivos los datos que se modificaron o que se agregaron del todo 
         //
-        System.out.println("Apreto el boton3?" + jButton3.getText());
+        //la cedula no existe pero es valida
+        if (jComboBox1.getSelectedItem().equals("Afiliado")) {
+            unafiliado = new Afiliado(jTextField1.getText(), jTextField2.getText(), jTextField3.getText(), jTextField4.getText(), jTextField5.getText(), jTextField6.getText(), jTextField7.getText(), jTextField8.getText(), jTextField10.getText(), jTextField1.getText());
+            Dominio.personas.add(unafiliado);
+        }
+        if (jComboBox1.getSelectedItem().equals("Médico")) {
+            unmedico = new Medico(jTextField1.getText(), jTextField2.getText(), jTextField3.getText(), jTextField4.getText(), jTextField5.getText(), jTextField6.getText(), jTextField7.getText(), jTextField10.getText(), jTextField9.getText());
+            Dominio.personas.add(unmedico);
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -402,12 +412,7 @@ public class MantenimientoMyP extends javax.swing.JPanel {
 
                 }
             } else {
-                if (jComboBox1.getSelectedItem().equals("Afiliado")) {
-                    unafiliado=new Afiliado(jTextField1.getText(),jTextField2.getText(),jTextField3.getText(),jTextField4.getText(),jTextField5.getText(),jTextField6.getText(),jTextField7.getText(),jTextField8.getText(),jTextField10.getText(),jTextField1.getText());
-                }
-                if (jComboBox1.getSelectedItem().equals("Médico")) {
-                    unmedico=new Medico(jTextField1.getText(),jTextField2.getText(),jTextField3.getText(),jTextField4.getText(),jTextField5.getText(),jTextField6.getText(),jTextField7.getText(),jTextField10.getText(),jTextField9.getText());
-                }
+                JOptionPane.showMessageDialog(null, "Complete los campos y oprima Aceptar para guardar", "Error", JOptionPane.ERROR_MESSAGE);
             }
         } else {
             JOptionPane.showMessageDialog(null, "Cédula incorrecta o no está en el sistema, vuelva a ingresarla o registre la misma", "Error", JOptionPane.ERROR_MESSAGE);
