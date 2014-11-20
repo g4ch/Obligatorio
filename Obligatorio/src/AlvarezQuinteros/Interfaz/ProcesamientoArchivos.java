@@ -6,14 +6,14 @@
 
 package AlvarezQuinteros.Interfaz;
 
+import AlvarezQuinteros.Dominio;
+
 /**
  *
  * @author alumnoFI
  */
 public class ProcesamientoArchivos extends javax.swing.JPanel {
-        int cantidadPacientes;
-        int cantidadMedicos;
-        int cantidadSucursales;
+
         
     public ProcesamientoArchivos() {
         initComponents();
@@ -74,19 +74,13 @@ public class ProcesamientoArchivos extends javax.swing.JPanel {
         });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel4.setText("Función  :");
-
-        jButton2.setText("Login");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jComboBox1ActionPerformed(evt);
             }
         });
 
-        jLabel4.setText("Función : ");
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jLabel4.setText("Función  :");
 
         jButton2.setText("Login");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -176,9 +170,19 @@ public class ProcesamientoArchivos extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       int[] arrayConCantidades = Dominio.cargarArchivos();
+       jTextField1.setText(String.valueOf(arrayConCantidades[0]));
+       jTextField2.setText(String.valueOf(arrayConCantidades[1]));
+       jTextField3.setText(String.valueOf(arrayConCantidades[2]));
+       
         //Recorro archivos y cuento la cantidad de cada uno
-        //Muestro cantidad en text boxs
+        
+//Muestro cantidad en text boxs
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
