@@ -6,6 +6,7 @@
 package AlvarezQuinteros;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
@@ -55,16 +56,15 @@ public class ArchivoGrabacionTest {
         System.out.println("escribirArchivo");
         try {
             File destino = folder.newFile("destino.txt");
-            String expResult=destino.getAbsolutePath();
+            String expResult = destino.getAbsolutePath();
             ArchivoGrabacion instance = new ArchivoGrabacion(destino.getAbsolutePath());
             File[] lista = destino.listFiles();
-            String resultado=lista[0].getAbsolutePath();
+            String resultado = lista[0].getAbsolutePath();
             assertEquals(expResult, resultado);
         } catch (IOException ex) {
             Logger.getLogger(ArchivoGrabacionTest.class.getName()).log(Level.SEVERE, null, ex);
         }
         // TODO review the generated test code and remove the default call to fail.
-        
 
     }
 
@@ -73,18 +73,19 @@ public class ArchivoGrabacionTest {
      */
     @Test
     public void testEscribirLineaArchivo() {
-        System.out.println("escribirLineaArchivo");
-        System.out.println("escribirArchivo");
-        String datos = "una linea";
+        System.out.println("escribir En Archivo");
         File destino;
         try {
             destino = folder.newFile("destino.txt");
+            Scanner in;
+            in = new Scanner(new FileReader(destino));
+            String linea = "hola mundo";
+            System.out.println(destino.getAbsolutePath());
             ArchivoGrabacion instance = new ArchivoGrabacion(destino.getAbsolutePath());
-            instance.escribirArchivo(datos);            
-            Scanner in = new Scanner(new FileReader(destino));
-            String expResult = in.nextLine();
-            
-            assertEquals(expResult, datos);
+            instance.escribirLineaArchivo(linea);
+            String lineaRecibida = in.nextLine();
+            in.close();
+            assertEquals(linea, lineaRecibida);
         } catch (IOException ex) {
             Logger.getLogger(ArchivoGrabacionTest.class.getName()).log(Level.SEVERE, null, ex);
         }

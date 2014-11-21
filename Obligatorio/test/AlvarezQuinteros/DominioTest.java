@@ -160,9 +160,12 @@ public class DominioTest {
     @Test
     public void testPersonaDeListaPersonas() {
         System.out.println("PersonaDeListaPersonas");
-        String ci = "";
+        Medico m=new Medico("5555555-5","Flavio","Solero","Rambla Wilson 1734","20/8/1969","f.solero@gmail.com","099555555","Nefrologia","001");
+        Afiliado f=new Afiliado("1111111-1","Pedro","Benitez","Av italia 6201","11/11/1994","pbenitez@gmail.com","099111111","4444444-4","001","1111111-1");
+        Dominio.personas.add(m);
+        Dominio.personas.add(f);
         Persona expResult = null;
-        Persona result = Dominio.PersonaDeListaPersonas(ci);
+        Persona result = Dominio.PersonaDeListaPersonas(m.cedula);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
