@@ -11,6 +11,10 @@ import AlvarezQuinteros.Interfaz.ProcesamientoArchivos;
 import java.io.File;
 import java.io.IOException;
 import static java.lang.System.console;
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -32,20 +36,16 @@ public class Dominio {
     public static ArrayList<Persona> personas = new ArrayList<Persona>();
     public static String usuario;
     public static String rol;
+    public static SimpleDateFormat formatof = new SimpleDateFormat("dd/MM/yyyy");
+    public static SimpleDateFormat formatoh = new SimpleDateFormat("HH:mm");
 
     public static void main(String[] args) {
+
         Persona p1 = new Persona("4590969-7", "Agustin", "Quinteros", "25 de Mayo", "14/12/94", "agustinquinteros17@hotmail.com", "099147463");
         Dominio.personas.add(p1);
         AccesoSistema ventana = new AccesoSistema();
         ventana.setVisible(true);
-
-        System.out.println(Dominio.estaEnLista(personas, "4590969-7"));
-        System.out.println(Dominio.cedulaValida("4590969-7"));
-        Iterator<Persona> it = personas.iterator();
-        while (it.hasNext()) {
-            Persona aux = it.next();
-            System.out.println(aux);
-        }
+        
     }
 
     public static boolean estaEnLista(ArrayList<Persona> p, String cedula) {
@@ -116,6 +116,18 @@ public class Dominio {
                 if (aux.getClass().toString().contains("Afiliado")) {
                     resultado.add(((Afiliado) (aux)).toString());
                 }
+            }
+        }
+        return resultado;
+    }
+
+    public static Persona PersonaDeListaPersonas(String ci) {
+        Persona resultado = new Persona();
+        Iterator<Persona> it = personas.iterator();
+        while (it.hasNext()) {
+            Persona aux = it.next();
+            if (aux.cedula.equals(ci)) {
+                resultado = aux;
             }
         }
         return resultado;

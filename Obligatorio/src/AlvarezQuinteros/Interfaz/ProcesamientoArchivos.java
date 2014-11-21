@@ -9,6 +9,7 @@ package AlvarezQuinteros.Interfaz;
 import AlvarezQuinteros.Dominio;
 import static AlvarezQuinteros.Dominio.MostrarDeListaPersonas;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -16,9 +17,10 @@ import java.util.ArrayList;
  */
 public class ProcesamientoArchivos extends javax.swing.JPanel {
 
-        
+        String log="";
     public ProcesamientoArchivos() {
         initComponents();
+        
         
         
     }
@@ -128,6 +130,8 @@ public class ProcesamientoArchivos extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        int[] arrayConCantidades = Dominio.cargarArchivos();
+       log = Dominio.usuario+"|"+Dominio.formatof.format(new Date()) +"|"+ Dominio.formatoh.format(new Date()) +"|"+ Dominio.PersonaDeListaPersonas(Dominio.usuario).getNombre() + "|" + Dominio.PersonaDeListaPersonas(Dominio.usuario).getApellido() + "|importacion|";
+            Dominio.logs.add(log);
        jTextField1.setText(String.valueOf(arrayConCantidades[0]));
        jTextField2.setText(String.valueOf(arrayConCantidades[1]));
        jTextField3.setText(String.valueOf(arrayConCantidades[2]));

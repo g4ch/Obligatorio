@@ -5,37 +5,47 @@
  */
 package AlvarezQuinteros;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Rule;
+import org.junit.rules.TemporaryFolder;
 
 /**
  *
  * @author carlos.alvarez
  */
 public class ArchivoGrabacionTest {
-    
+
     public ArchivoGrabacionTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
+    @Rule
+    public TemporaryFolder folder = new TemporaryFolder();
 
     /**
      * Test of escribirArchivo method, of class ArchivoGrabacion.
@@ -43,11 +53,19 @@ public class ArchivoGrabacionTest {
     @Test
     public void testEscribirArchivo() {
         System.out.println("escribirArchivo");
-        String datos = "";
-        ArchivoGrabacion instance = null;
-        instance.escribirArchivo(datos);
+        try {
+            File destino = folder.newFile("destino.txt");
+            String expResult=destino.getAbsolutePath();
+            ArchivoGrabacion instance = new ArchivoGrabacion(destino.getAbsolutePath());
+            File[] lista = destino.listFiles();
+            String resultado=lista[0].getAbsolutePath();
+            assertEquals(expResult, resultado);
+        } catch (IOException ex) {
+            Logger.getLogger(ArchivoGrabacionTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+
     }
 
     /**
@@ -56,11 +74,20 @@ public class ArchivoGrabacionTest {
     @Test
     public void testEscribirLineaArchivo() {
         System.out.println("escribirLineaArchivo");
-        String datos = "";
-        ArchivoGrabacion instance = null;
-        instance.escribirLineaArchivo(datos);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println("escribirArchivo");
+        String datos = "una linea";
+        File destino;
+        try {
+            destino = folder.newFile("destino.txt");
+            ArchivoGrabacion instance = new ArchivoGrabacion(destino.getAbsolutePath());
+            instance.escribirArchivo(datos);            
+            Scanner in = new Scanner(new FileReader(destino));
+            String expResult = in.nextLine();
+            
+            assertEquals(expResult, datos);
+        } catch (IOException ex) {
+            Logger.getLogger(ArchivoGrabacionTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -74,5 +101,5 @@ public class ArchivoGrabacionTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
+
 }

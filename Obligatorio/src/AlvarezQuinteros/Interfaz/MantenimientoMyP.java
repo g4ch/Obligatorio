@@ -415,7 +415,7 @@ public class MantenimientoMyP extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Complete los campos y oprima Aceptar para guardar", "Error", JOptionPane.ERROR_MESSAGE);
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Cédula incorrecta o no está en el sistema, vuelva a ingresarla o registre la misma", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Cedula inexistente o invalida. Ej.4590969-7", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 

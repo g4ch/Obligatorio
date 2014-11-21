@@ -14,28 +14,19 @@ import java.util.Iterator;
  * @author alumnoFI
  */
 public class Historia {
-    ArrayList<Consulta> consultas;
     String detalles;
     String persona;
     public Historia() {
-        consultas = new ArrayList<Consulta>();
         detalles="Enfermedades y otros relevantes";
     }
 
-    public Historia(ArrayList<Consulta> consultas, String detalles, String persona) {
-        this.consultas = consultas;
+    public Historia(String detalles, String persona) {
         this.detalles = detalles;
         this.persona = persona;
     }
     
 
-    public ArrayList<Consulta> getConsultas() {
-        return consultas;
-    }
-
-    public void setConsultas(ArrayList<Consulta> consultas) {
-        this.consultas = consultas;
-    }
+    
 
     public String getDetalles() {
         return detalles;
@@ -47,13 +38,7 @@ public class Historia {
 
     @Override
     public String toString() {
-        Iterator<Consulta> it=consultas.iterator();
-        String cons="";
-        while (it.hasNext()){
-        Consulta aux=it.next();
-        cons+=aux.getId()+";";
-        }        
-        return persona+ "|" + cons + "|" + detalles + "|";
+        return persona+ "|" + "|" + detalles + "|";
     }
     
 }

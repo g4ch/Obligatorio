@@ -384,19 +384,6 @@ public class InformacionMyP extends javax.swing.JFrame {
                                     jTextField10.setText(datos[8]);//sucursal
                                 }
                             }
-                            if (jComboBox1.getSelectedItem().equals("Funcionario") && tipo[1].equals("funcionarios.dat")) {
-                                String[] datos = al.linea().split("\\|");
-                                System.out.println(datos.toString());
-                                if (datos[0].equals(jTextField1.getText())) {
-                                    jTextField2.setText(datos[1]);//nombre
-                                    jTextField3.setText(datos[2]);//apellido
-                                    jTextField4.setText(datos[3]);//direccion
-                                    jTextField5.setText(datos[4]);//nacimiento
-                                    jTextField6.setText(datos[5]);//email
-                                    jTextField7.setText(datos[6]);//telefono
-                                    jTextField10.setText(datos[8]);//sucursal
-                                }
-                            }
                             if (jComboBox1.getSelectedItem().equals("Médico") && tipo[1].equals("medicos.dat")) {
                                 String[] datos = al.linea().split("\\|");
                                 System.out.println(datos.toString());
@@ -420,7 +407,7 @@ public class InformacionMyP extends javax.swing.JFrame {
                 
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Cédula incorrecta o no está en el sistema, vuelva a ingresarla o registre la misma", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Cedula inexistente o invalida. Ej.4590969-7", "Error", JOptionPane.ERROR_MESSAGE);
         }
         if (Dominio.cedulaValida(jTextField1.getText())) {
             File carpeta = new File("./Archivos/");

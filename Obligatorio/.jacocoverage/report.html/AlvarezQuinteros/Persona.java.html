@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Persona.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;AlvarezQuinteros&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">AlvarezQuinteros</a> &gt; <span class="el_source">Persona.java</span></div><h1>Persona.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package AlvarezQuinteros;
+
+import java.util.Date;
+
+/**
+ *
+ * @author alumnoFI
+ */
+public class Persona {
+    String cedula;
+    String nombre;
+    String apellido;
+    String direccion;
+    String nacimiento;
+    String email;
+    String telefono;
+
+<span class="fc" id="L24">    public Persona() {</span>
+<span class="fc" id="L25">        cedula=&quot;1111111-1&quot;;</span>
+<span class="fc" id="L26">        nombre=&quot;Pedro&quot;;</span>
+<span class="fc" id="L27">        apellido=&quot;Gonzalez&quot;;</span>
+<span class="fc" id="L28">        direccion=&quot;Cuareim 1451&quot;;</span>
+<span class="fc" id="L29">        nacimiento = &quot;14/12/94&quot;;</span>
+      //  nacimiento=new Date();
+<span class="fc" id="L31">        email=&quot;pgonzalez@gmail.com&quot;;</span>
+<span class="fc" id="L32">        telefono=&quot;094123456&quot;;</span>
+<span class="fc" id="L33">    }</span>
+
+<span class="fc" id="L35">    public Persona(String cedula, String nombre, String apellido, String direccion, String nacimiento, String email, String telefono) {</span>
+<span class="fc" id="L36">        this.cedula = cedula;</span>
+<span class="fc" id="L37">        this.nombre = nombre;</span>
+<span class="fc" id="L38">        this.apellido = apellido;</span>
+<span class="fc" id="L39">        this.direccion = direccion;</span>
+<span class="fc" id="L40">        this.nacimiento = nacimiento;</span>
+<span class="fc" id="L41">        this.email = email;</span>
+<span class="fc" id="L42">        this.telefono = telefono;</span>
+<span class="fc" id="L43">    }</span>
+
+    public String getNacimiento() {
+<span class="nc" id="L46">        return nacimiento;</span>
+    }
+
+    public void setNacimiento(String nacimiento) {
+<span class="nc" id="L50">        this.nacimiento = nacimiento;</span>
+<span class="nc" id="L51">    }</span>
+
+
+
+
+    public String getCedula() {
+<span class="fc" id="L57">        return cedula;</span>
+    }
+
+    public void setCedula(String cedula) {
+<span class="nc" id="L61">        this.cedula = cedula;</span>
+<span class="nc" id="L62">    }</span>
+
+    public String getNombre() {
+<span class="nc" id="L65">        return nombre;</span>
+    }
+
+    public void setNombre(String nombre) {
+<span class="nc" id="L69">        this.nombre = nombre;</span>
+<span class="nc" id="L70">    }</span>
+
+    public String getApellido() {
+<span class="nc" id="L73">        return apellido;</span>
+    }
+
+    public void setApellido(String apellido) {
+<span class="nc" id="L77">        this.apellido = apellido;</span>
+<span class="nc" id="L78">    }</span>
+
+    public String getDireccion() {
+<span class="nc" id="L81">        return direccion;</span>
+    }
+
+    public void setDireccion(String direccion) {
+<span class="nc" id="L85">        this.direccion = direccion;</span>
+<span class="nc" id="L86">    }</span>
+
+  /*  public Date getNacimiento() {
+        return nacimiento;
+    }
+
+    public void setNacimiento(Date nacimiento) {
+        this.nacimiento = nacimiento;
+    }
+*/
+    public String getEmail() {
+<span class="nc" id="L97">        return email;</span>
+    }
+
+    public void setEmail(String email) {
+<span class="nc" id="L101">        this.email = email;</span>
+<span class="nc" id="L102">    }</span>
+
+    public String getTelefono() {
+<span class="nc" id="L105">        return telefono;</span>
+    }
+
+    public void setTelefono(String telefono) {
+<span class="nc" id="L109">        this.telefono = telefono;</span>
+<span class="nc" id="L110">    }</span>
+
+    @Override
+    public String toString() {
+<span class="fc" id="L114">        return cedula + &quot;|&quot; + nombre + &quot;|&quot; + apellido + &quot;|&quot; + direccion + &quot;|&quot; + nacimiento + &quot;|&quot; + email + &quot;|&quot; + telefono + &quot;|&quot;;</span>
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span></div></body></html>

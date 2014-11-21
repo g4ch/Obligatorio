@@ -6,6 +6,8 @@
 package AlvarezQuinteros.Interfaz;
 
 import AlvarezQuinteros.Dominio;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -22,6 +24,8 @@ public class AccesoSistema extends javax.swing.JFrame {
     ProcesamientoArchivos procArch = new ProcesamientoArchivos();
     InformacionMyP infMyP = new InformacionMyP();
     Log ventanaLog = new Log();
+    //String ci,fecha,hora,nombre,apellido,tipo;
+    String log = "";
 
     public AccesoSistema() {
         initComponents();
@@ -167,13 +171,13 @@ public class AccesoSistema extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            if (Dominio.cedulaValida(jTextField2.getText())) {
-                JFrame frame = new JFrame();
-                frame.setSize(420, 345);
-                frame.add(myp);
-                frame.setVisible(true);
-                //Si tenemos tiempo agregar que cargue el textField de cedula de Mantenimiento con la cedula que ingreso 
-            }
+        if (Dominio.cedulaValida(jTextField2.getText())) {
+            JFrame frame = new JFrame();
+            frame.setSize(420, 345);
+            frame.add(myp);
+            frame.setVisible(true);
+            //Si tenemos tiempo agregar que cargue el textField de cedula de Mantenimiento con la cedula que ingreso 
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -200,6 +204,9 @@ public class AccesoSistema extends javax.swing.JFrame {
         //Controlar que la cédula esté 
 //        if(Dominio.personas.contains(jTextField2.getText())){
         if (Dominio.cedulaValida(jTextField2.getText()) && Dominio.estaEnLista(Dominio.personas, jTextField2.getText())) {
+            log =jTextField2.getText()+"|"+ Dominio.formatof.format(new Date()) +"|"+ Dominio.formatoh.format(new Date()) +"|"+ Dominio.PersonaDeListaPersonas(jTextField2.getText()).getNombre() + "|" + Dominio.PersonaDeListaPersonas(jTextField2.getText()).getApellido() + "|ingreso|";
+            Dominio.logs.add(log);
+            Dominio.usuario = jTextField2.getText();
             if (jComboBox2.getSelectedItem().equals("Procesamiento")) {
                 JFrame frame = new JFrame();
                 frame.setSize(420, 345);
@@ -221,23 +228,23 @@ public class AccesoSistema extends javax.swing.JFrame {
                 frame.add(ventanaLog);
                 frame.setVisible(true);
             }
-            
+
    //     } else {
-   //         JOptionPane.showMessageDialog(null, "Cédula incorrecta o no está en el sistema, vuelva a ingresarla o registre la misma", "Error", JOptionPane.ERROR_MESSAGE);
-   //     }
+            //         JOptionPane.showMessageDialog(null, "Cédula incorrecta o no está en el sistema, vuelva a ingresarla o registre la misma", "Error", JOptionPane.ERROR_MESSAGE);
+            //     }
         /*     if (Dominio.estaEnLista(Dominio.personas, jTextField1.getText())) {
-         //if administrador
-         //muestro menu administrador y asi con los otros
-         //else{ 
-         //cedula incorrecta ingresela nuevamente si está mal o 
-         //clickee registrar si lo que desea es para registrar una nueva cédula
+             //if administrador
+             //muestro menu administrador y asi con los otros
+             //else{ 
+             //cedula incorrecta ingresela nuevamente si está mal o 
+             //clickee registrar si lo que desea es para registrar una nueva cédula
             
-         }
-         }
-         */
-        //si no esta en la lista le pregunto si lo quiere agregar  si pone que si lo mando a Mantenimineto
-        }else{
-             JOptionPane.showMessageDialog(null, "Su cédula no está en el sistema, vuelva a ingresarla o registre la misma", "Error", JOptionPane.ERROR_MESSAGE);
+             }
+             }
+             */
+            //si no esta en la lista le pregunto si lo quiere agregar  si pone que si lo mando a Mantenimineto
+        } else {
+            JOptionPane.showMessageDialog(null, "Cedula inexistente o invalida. Ej.4590969-7", "Error", JOptionPane.ERROR_MESSAGE);
         }
 
 

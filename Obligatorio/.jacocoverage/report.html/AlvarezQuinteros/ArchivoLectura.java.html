@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ArchivoLectura.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;AlvarezQuinteros&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">AlvarezQuinteros</a> &gt; <span class="el_source">ArchivoLectura.java</span></div><h1>ArchivoLectura.java</h1><pre class="source lang-java linenums">/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package AlvarezQuinteros;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+/**
+ *
+ * @author Administrador
+ */
+public class ArchivoLectura {
+<span class="fc" id="L17">    String linea=&quot;&quot;;</span>
+    BufferedReader in;
+    
+<span class="fc" id="L20">    public ArchivoLectura(String unNombre){</span>
+        try{
+<span class="fc" id="L22">            in = new BufferedReader(new FileReader(unNombre));</span>
+            
+<span class="nc" id="L24">        }catch (FileNotFoundException e){</span>
+<span class="nc" id="L25">            System.out.println(&quot;El archivo no existe&quot;);</span>
+<span class="fc" id="L26">        }</span>
+<span class="fc" id="L27">    }</span>
+    public boolean hayMasLineas(){
+        try{
+<span class="fc" id="L30">            linea=in.readLine();</span>
+            
+<span class="nc" id="L32">        } catch(IOException e){</span>
+<span class="nc" id="L33">            linea=null;</span>
+<span class="fc" id="L34">        }</span>
+<span class="fc bfc" id="L35" title="All 2 branches covered.">        return(linea != null);</span>
+    }
+    public String linea(){
+<span class="nc" id="L38">        return linea;</span>
+    }
+    public boolean cerrar(){
+<span class="fc" id="L41">        boolean ok=true;</span>
+        try{
+<span class="fc" id="L43">            in.close();</span>
+<span class="nc" id="L44">        }catch(Exception e){</span>
+<span class="nc" id="L45">            System.out.println(&quot;Ocurrio un error al intentar cerrar el archivo&quot;);</span>
+<span class="nc" id="L46">            ok=false;</span>
+<span class="fc" id="L47">        }</span>
+<span class="fc" id="L48">        return ok;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span></div></body></html>

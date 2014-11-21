@@ -38,17 +38,7 @@ public class DominioTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of main method, of class Dominio.
-     */
-    @Test
-    public void testMain() {
-        System.out.println("main");
-        String[] args = null;
-        Dominio.main(args);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+    
 
     /**
      * Test of cedulaValida method, of class Dominio.
@@ -98,7 +88,7 @@ public class DominioTest {
     @Test
     public void test4CedulaValida() {
         System.out.println("cedulaValida");
-        String ci = "123456-7";
+        String ci = "1234567-7";
         boolean expResult = true;
         boolean result = Dominio.cedulaValida(ci);
         assertEquals(expResult, result);
@@ -119,6 +109,63 @@ public class DominioTest {
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         
+    }
+
+    /**
+     * Test of cargarArchivos method, of class Dominio.
+     */
+    @Test
+    public void testCargarArchivos() {
+        System.out.println("cargarArchivos");
+        int[] expResult = null;
+        int[] result = Dominio.cargarArchivos();
+        assertArrayEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of MostrarDeListaPersonas method, of class Dominio.
+     */
+    @Test
+    public void testMostrarDeListaPersonas() {
+        System.out.println("MostrarDeListaPersonas");
+        Medico m=new Medico("5555555-5","Flavio","Solero","Rambla Wilson 1734","20/8/1969","f.solero@gmail.com","099555555","Nefrologia","001");
+        Afiliado f=new Afiliado("1111111-1","Pedro","Benitez","Av italia 6201","11/11/1994","pbenitez@gmail.com","099111111","4444444-4","001","1111111-1");
+        Dominio.personas.add(m);
+        Dominio.personas.add(f);
+        ArrayList<String> expResult = new ArrayList<String>();
+        expResult.add(m.toString());
+        expResult.add(f.toString());
+        ArrayList<String> result = Dominio.MostrarDeListaPersonas();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+    }
+
+    /**
+     * Test of main method, of class Dominio.
+     */
+    @Test
+    public void testMain() {
+        System.out.println("main");
+        String[] args = null;
+        Dominio.main(args);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of PersonaDeListaPersonas method, of class Dominio.
+     */
+    @Test
+    public void testPersonaDeListaPersonas() {
+        System.out.println("PersonaDeListaPersonas");
+        String ci = "";
+        Persona expResult = null;
+        Persona result = Dominio.PersonaDeListaPersonas(ci);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
 }

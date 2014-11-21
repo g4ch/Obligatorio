@@ -94,7 +94,7 @@ public class Log extends javax.swing.JPanel {
                 }
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Cédula incorrecta o no está en el sistema, vuelva a ingresarla o registre la misma", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Cedula inexistente o invalida. Ej.4590969-7", "Error", JOptionPane.ERROR_MESSAGE);
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
